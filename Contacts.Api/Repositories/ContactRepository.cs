@@ -1,10 +1,8 @@
-﻿using Azure.Core;
-using Contacts.Api.Data;
+﻿using Contacts.Api.Data;
 using Contacts.Api.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Contacts.Api.Repository
+namespace Contacts.Api.Repositories
 {
 	public class ContactRepository: IContactRepository
 	{

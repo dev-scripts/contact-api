@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Contacts.Api.Models;
-using Contacts.Api.Repository;
+using Contacts.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Contacts.Api.Controllers;

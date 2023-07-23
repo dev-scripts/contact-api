@@ -1,7 +1,6 @@
 ﻿using Contacts.Api.Models;
-using Microsoft.AspNetCore.Mvc;
 
-namespace Contacts.Api.Repository
+namespace Contacts.Api.Repositories
 {
 	public interface IContactRepository
 	{

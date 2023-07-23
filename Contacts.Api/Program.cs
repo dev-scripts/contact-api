@@ -1,5 +1,5 @@
 ﻿using Contacts.Api.Data;
-using Contacts.Api.Repository;
+using Contacts.Api.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
