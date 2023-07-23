@@ -4,7 +4,7 @@ namespace Contacts.Api.Requests
 {
 	public class ContactAddRequest
 	{
-		[Required]
+        [Required]
         public required string FullName { get; set; }
 
         [Required]
