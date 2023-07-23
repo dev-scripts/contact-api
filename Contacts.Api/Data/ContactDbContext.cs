@@ -3,14 +3,14 @@ using Contacts.Api.Models;
 using Microsoft.EntityFrameworkCore;
 namespace Contacts.Api.Data
 {
-	public class ContactDbContext : DbContext
+    public class ContactDbContext : DbContext
     {
-		public ContactDbContext(DbContextOptions options) : base(options)
-		{
-				
-		}
+        public ContactDbContext(DbContextOptions options) : base(options)
+        {
 
-		public DbSet<Contact> Contacts { get; set; }
-	}
+        }
+
+        public DbSet<Contact> Contacts { get; set; }
+    }
 }
 

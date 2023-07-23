@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Contacts.Api.Repositories
 {
-	public class ContactRepository: IContactRepository
-	{
+    public class ContactRepository : IContactRepository
+    {
         private readonly ContactDbContext DbContext;
 
         public ContactRepository(ContactDbContext contactDbContex)
-		{
+        {
             this.DbContext = contactDbContex;
         }
 
@@ -59,7 +59,7 @@ namespace Contacts.Api.Repositories
 
         public async Task<Contact?> Get(Guid id)
         {
-            var contact =  await DbContext.Contacts.FindAsync(id);
+            var contact = await DbContext.Contacts.FindAsync(id);
 
             return contact;
         }

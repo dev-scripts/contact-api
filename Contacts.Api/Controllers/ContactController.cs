@@ -19,11 +19,14 @@ public class ContactController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        try {
+        try
+        {
             var contacts = await contactRepository.GetAll();
 
             return new JsonResult(contacts);
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             return BadRequest(ex.Message);
         }
     }
