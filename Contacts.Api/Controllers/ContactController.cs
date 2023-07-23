@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Contacts.Api.Models;
+using Contacts.Api.Requests;
 using Contacts.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +20,7 @@ public class ContactController : ControllerBase
     public async Task<IActionResult> GetAll()
     {
         try {
-            var contacts = await contactRepository.GetAllAsync();
+            var contacts = await contactRepository.GetAll();
 
             return new JsonResult(contacts);
         } catch (Exception ex) {
@@ -105,5 +105,3 @@ public class ContactController : ControllerBase
         }
     }
 }
-
-

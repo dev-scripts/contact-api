@@ -1,5 +1,6 @@
 ﻿using Contacts.Api.Data;
 using Contacts.Api.Models;
+using Contacts.Api.Requests;
 using Microsoft.EntityFrameworkCore;
 
 namespace Contacts.Api.Repositories
@@ -13,13 +14,12 @@ namespace Contacts.Api.Repositories
             this.DbContext = contactDbContex;
         }
 
-        public async Task<List<Contact>> GetAllAsync()
+        public async Task<List<Contact>> GetAll()
         {
             var contacts = await DbContext.Contacts.ToListAsync();
 
             return contacts;
         }
-
 
         public async Task<Contact> Store(ContactAddRequest request)
         {
@@ -79,4 +79,3 @@ namespace Contacts.Api.Repositories
         }
     }
 }
-
