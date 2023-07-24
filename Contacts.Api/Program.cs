@@ -1,5 +1,6 @@
 ﻿using Contacts.Api.Data;
 using Contacts.Api.Repositories;
+using Contacts.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContactDbContext>(option => option.UseInMemoryDatabase("ContactDB"));
 builder.Services.AddTransient<IContactRepository, ContactRepository>();
+builder.Services.AddTransient<IContactService, ContactService>();
+
 var app = builder.Build();
 
 

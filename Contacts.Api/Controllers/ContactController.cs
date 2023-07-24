@@ -2,6 +2,7 @@
 using Contacts.Api.Requests;
 using Contacts.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Contacts.Api.Services;
 
 namespace Contacts.Api.Controllers;
 
@@ -9,11 +10,11 @@ namespace Contacts.Api.Controllers;
 [Route("api/contacts")]
 public class ContactController : ControllerBase
 {
-    private readonly IContactRepository contactRepository;
+    private readonly IContactService contactService;
 
-    public ContactController(IContactRepository contactRepository)
+    public ContactController(IContactService contactService)
     {
-        this.contactRepository = contactRepository;
+        this.contactService = contactService;
     }
 
     [HttpGet]
@@ -21,7 +22,7 @@ public class ContactController : ControllerBase
     {
         try
         {
-            var contacts = await contactRepository.GetAll();
+            var contacts = await contactService.GetAll();
 
             return new JsonResult(contacts);
         }
@@ -36,7 +37,7 @@ public class ContactController : ControllerBase
     {
         try
         {
-            var contact = await contactRepository.Store(request);
+            var contact = await contactService.Store(request);
 
             return new JsonResult(contact);
         }
@@ -52,7 +53,7 @@ public class ContactController : ControllerBase
     {
         try
         {
-            var contact = await contactRepository.Update(id, request);
+            var contact = await contactService.Update(id, request);
 
             if (contact != null)
             {
@@ -73,7 +74,7 @@ public class ContactController : ControllerBase
     {
         try
         {
-            var contact = await contactRepository.Get(id);
+            var contact = await contactService.Get(id);
             if (contact != null)
             {
                 return new JsonResult(contact);
@@ -93,7 +94,7 @@ public class ContactController : ControllerBase
     {
         try
         {
-            var contact = await contactRepository.Delete(id);
+            var contact = await contactService.Delete(id);
 
             if (contact)
             {
